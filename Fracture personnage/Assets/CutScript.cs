@@ -59,10 +59,20 @@ public class CutScript : MonoBehaviour {
     private void CutElements() {
         Debug.Log("Cutting Elements");
         for (int i = 0; i < this.Elements.Count; i++) {
-            
-            //var elementPhysics = this.Elements[i].GetComponent<ElementPhysics>();
-        }
+            //Récupérer les scripts d'éléments
+            var elementPhysics = this.Elements[i].GetComponent<ElementPhysics>();
+           for (int j = 0; j < elementPhysics.jointsRigidbodys.Length; j++) {
+                // détruire les joints pour chaque rigidbody de neighbor
+                if (this.Elements[i].GetComponent<Rigidbody2D>() == elementPhysics.jointsRigidbodys[j]) {
+                    Destroy(elementPhysics.joints[j]);
+                    elementPhysics.joints[j] = null;
+                    elementPhysics.jointsRigidbodys[j] = null;
 
+                }
+            }
+            
+        }
+        this.Elements.Clear();
     }
     
     

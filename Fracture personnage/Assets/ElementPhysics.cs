@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ElementPhysics : MonoBehaviour {
     public Rigidbody2D[] neighbors = new Rigidbody2D[4];
-    public List<Rigidbody2D> jointsRigidbodys;
+    public Rigidbody2D[] jointsRigidbodys = new Rigidbody2D[4];
     public FixedJoint2D[] joints = new FixedJoint2D[4];
 
     private Collider2D coll;
@@ -47,12 +47,13 @@ public class ElementPhysics : MonoBehaviour {
             }
         }
     }
-
     private void CreateJoints() {
         for (int i = 0; i < this.neighbors.Length; i++) {
             if (this.neighbors[i] != null) {
-                this.joints[i] = gameObject.AddComponent<FixedJoint2D>();
+                this.joints[i] = this.gameObject.AddComponent<FixedJoint2D>();
+                
                 this.joints[i].connectedBody = this.neighbors[i];
+                this.jointsRigidbodys[i] = this.joints[i].connectedBody;
             }
         }
     }

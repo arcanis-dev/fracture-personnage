@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Arcanus\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Arcanus\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Fracture personnage.924055681.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Arcanus\Documents\Unity\Projects\Fracture personnage" t="IncludeRecursive">
+    <e p="C:\Users\Arcanis\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Arcanis\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Fracture personnage.-1303076116.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Arcanis\Documents\GitHub\fracture-personnage\Fracture personnage" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="CutScript.cs" t="Include" />

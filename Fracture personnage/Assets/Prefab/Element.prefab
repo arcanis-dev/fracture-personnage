@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b072ea3849d0a874bb3a4fd4c0d3c723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbours:
+  neighbors:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
