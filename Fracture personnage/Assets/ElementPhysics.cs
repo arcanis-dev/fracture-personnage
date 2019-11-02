@@ -37,7 +37,6 @@ public class ElementPhysics : MonoBehaviour {
             }
 
             var hit = Physics2D.RaycastAll(transform.position, dir, dir.magnitude);
-            Debug.Log(hit.Length);
             foreach (var t in hit) {
                 if (t.transform.CompareTag("Element")){
                     if (t.transform.gameObject != this.gameObject) {

@@ -147,7 +147,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  jointsRigidbodys: []
+  jointsRigidbodys:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   joints:
   - {fileID: 0}
   - {fileID: 0}
