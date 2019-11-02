@@ -42,16 +42,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/CutScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ElementPhysics.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E3232360-D51C-46C7-86DD-547E2F0B3F8B/15/3990fb6c/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CutScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/GetNeighbours.cs" />
-        <option value="$PROJECT_DIR$/Assets/ElementPhysics.cs" />
         <option value="$PROJECT_DIR$/Assets/CutScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/ElementPhysics.cs" />
       </list>
     </option>
   </component>
@@ -105,6 +104,7 @@
       <workItem from="1572543193213" duration="6231000" />
       <workItem from="1572577316789" duration="13930000" />
       <workItem from="1572627793689" duration="5772000" />
+      <workItem from="1572680873497" duration="1445000" />
     </task>
     <servers />
   </component>

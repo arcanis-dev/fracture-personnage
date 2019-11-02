@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
+using Vector2 = UnityEngine.Vector2;
 
 public class ElementPhysics : MonoBehaviour {
     public Rigidbody2D[] neighbors = new Rigidbody2D[4];
@@ -9,14 +12,35 @@ public class ElementPhysics : MonoBehaviour {
     public FixedJoint2D[] joints = new FixedJoint2D[4];
 
     private Collider2D coll;
+    private Rigidbody2D rb;
     private Vector2 extents;
+    private float horizontalInput;
+    private float verticalInput;
+    private Vector2 velocity;
+    public float force = 3f;
+    
+
+    public float vitesseDeplacement = 10f;
 
     private void Awake() {
         GetNeighboursRb();
         CreateJoints();
         coll = this.GetComponent<Collider2D>();
         extents = this.coll.bounds.extents;
+        rb = this.GetComponent<Rigidbody2D>();
     }
+
+    private void Update() {
+        this.horizontalInput = Input.GetAxisRaw("Horizontal");
+        this.verticalInput = Input.GetAxisRaw("Vertical");
+        this.velocity = new Vector2(this.horizontalInput, this.verticalInput);
+    }
+
+    private void FixedUpdate() {
+        Debug.Log(this.velocity);
+        this.rb.AddForce(this.velocity * this.force * Time.fixedDeltaTime, ForceMode2D.Force);
+    }
+    
     
     private void GetNeighboursRb() {
         var dir = new Vector2();
