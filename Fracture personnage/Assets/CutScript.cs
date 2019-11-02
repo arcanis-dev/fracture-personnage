@@ -28,7 +28,7 @@ public class CutScript : MonoBehaviour {
         this.mousePosition2D = this.cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0)) {
             cutStart = mousePosition2D;
-            
+
         }
 
         if (Input.GetMouseButton(0)) {
@@ -49,13 +49,14 @@ public class CutScript : MonoBehaviour {
         var distance = Vector2.Distance(this.cutStart, this.mousePosition2D);
         RaycastHit2D[] hits = Physics2D.RaycastAll(this.cutStart, this.mousePosition2D - this.cutStart, distance);
         //Debug.Log("hits length" + hits.Length);
-        
+
         for (int i = 0; i < hits.Length; i++) {
-            if(hits[i].transform.CompareTag("Element")) this.Elements.Add(hits[i].transform.GetComponent<Rigidbody2D>());
+            if (hits[i].transform.CompareTag("Element"))
+                this.Elements.Add(hits[i].transform.GetComponent<Rigidbody2D>());
         }
     }
 
-    private void CutElements() { 
+    private void CutElements() {
         int destroyed = 0;
         Debug.Log("Cutting Elements");
         /*Pour chaque élément, compare chaque voisin avec chaque élément dans la liste
@@ -66,46 +67,20 @@ public class CutScript : MonoBehaviour {
 
         for (int i = 0; i < this.Elements.Count; i++) {
             ElementPhysics elementPhysics = this.Elements[i].GetComponent<ElementPhysics>();
-            
             for (int j = 0; j < elementPhysics.neighbors.Length; j++) {
-                if(this.Elements.Contains(elementPhysics.neighbors[j]))
-                    for (int k = 0; k < elementPhysics.joints.Length; k++) {
-                        Destroy(elementPhysics.joints[k]);
+                if (this.Elements.Contains(elementPhysics.neighbors[j]))
+                    for (int k = 0; k < elementPhysics.jointsRigidbodys.Length; k++) {
+                        if (this.Elements.Contains(elementPhysics.jointsRigidbodys[k])) {
+                            Destroy(elementPhysics.joints[k]);
+                            elementPhysics.jointsRigidbodys[k] = null;
+                            elementPhysics.joints[k] = null;
+                            destroyed += 1;
+                            print("destroyed : " + destroyed);
+                        }
                     }
-                //elementPhysics.joints[j].attachedRigidbody
             }
         }
-    }
-        
 
-        
-        
-        
-        
-        
-        
-//        //Pour chaque élément enregistré par la coupe
-//        for (int i = 0; i < this.Elements.Count; i++) { 
-//            //Récupérer son script d'élément
-//            var elementPhysics = this.Elements[i].GetComponent<ElementPhysics>(); 
-//            
-//            //Comparer chaque élément avec un de 
-//            
-//            
-//            for (int j = 0; j < elementPhysics.jointsRigidbodys.Length; j++) { 
-//                
-//                
-//                if (this.Elements[i] != null) {
-//                    
-//                    // détruire les joints pour chaque rigidbody de neighbor
-//                    if (this.Elements[i].GetComponent<Rigidbody2D>() == elementPhysics.jointsRigidbodys[j]) {
-//                        Destroy(elementPhysics.joints[j]);
-//                        elementPhysics.joints[j] = null;
-//                        elementPhysics.jointsRigidbodys[j] = null; 
-//                        destroyed += 1;
-//                        print("destroyed : " + destroyed);
-//                    }
-//                }
-//        }
-        
+        this.Elements.Clear();
     }
+}
